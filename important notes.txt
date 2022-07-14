@@ -1,3 +1,4 @@
+
 RULES:
 	1) use typescript, spliting, ssr, next, eslint, prettier, react query, react window, memo, test
 	2) only use `import { App }`, Dont use `export default`, only use `export`

@@ -1,3 +1,6 @@
+Use yarn install 
+Use yarn start
+
 
 RULES:
 	1) use typescript, spliting, ssr, next, eslint, prettier, react query, react window, memo, test

@@ -2,7 +2,22 @@ Use yarn install
 Use yarn start
 
 git:
-	- git pull origin development
+	- ghable pull kardan, moghe shoroe task (akharin taghirat ro begiram) : git pull origin development
+	- ijade branch : git checkout -b test
+
+installation : 
+	1) yarn add @mui/material @emotion/react @emotion/styled
+	2) yarn add react-query
+	3) yarn add @reduxjs/toolkit
+	4) yarn add redux
+	5) yarn add react-hook-form
+	6) yarn add yup
+	7) yarn add helmet
+	8) yarn add i18n
+	9) yarn add swiper
+	10) yarn add react-window
+	11) yarn add date-fns
+
 
 RULES:
 	1) use typescript, spliting, ssr, next, eslint, prettier, react query, react window, memo, test

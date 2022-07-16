@@ -4,7 +4,10 @@ Use yarn install
 Use yarn start
 
 git:
+
+1111
 	- git pull origin development
+	2222
 
 RULES:
 	1) use typescript, spliting, ssr, next, eslint, prettier, react query, react window, memo, test

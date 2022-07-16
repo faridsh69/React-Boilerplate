@@ -2,7 +2,7 @@ Use yarn install
 Use yarn start
 
 git:
-	- ghable pull kardan, moghe shoroe task (akharin taghirat ro begiram) : git pull origin development
+	- ghable pull request sakhtan, ghable shoroe task (akharin taghirat ro begiram) : git pull origin development
 	- ijade branch : git checkout -b test
 
 installation : 

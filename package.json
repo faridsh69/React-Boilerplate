@@ -71,7 +71,7 @@
 		"prettier": "2.7.1"
 	},
 	"lint-staged": {
-		"*/.(ts|js)?(x)": [
+		"*/.(ts|tsx|js)?(x)": [
 			"npm run lint",
 			"prettier --write"
 		]

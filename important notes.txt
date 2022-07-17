@@ -23,6 +23,7 @@ installation :
 		// "lint-staged": {
 		// 	"**/*": "prettier --write --ignore-unknown"
 		// }
+		
 Prettier:
 	+ yarn add --dev --exact prettier
 	+ echo {}> .prettierrc.json

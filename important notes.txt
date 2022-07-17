@@ -19,6 +19,16 @@ installation :
 	9) yarn add swiper
 	10) yarn add react-window
 	11) yarn add date-fns
+	12) yarn add eslint-plugin-react
+		// "lint-staged": {
+		// 	"**/*": "prettier --write --ignore-unknown"
+		// }
+		
+Prettier:
+	+ yarn add --dev --exact prettier
+	+ echo {}> .prettierrc.json
+	+ add configs to setting.json
+	+ format all files with Prettier : yarn prettier --write .
 
 
 RULES:

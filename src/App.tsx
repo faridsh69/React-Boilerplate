@@ -3,9 +3,6 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-	let x = 0;
-	const y = 1;
-	const z = 21;
 	console.log("eslint");
 	return (
 		<div className="App">

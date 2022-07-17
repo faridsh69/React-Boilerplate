@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
 	let x = 0;
+	console.log("eslint");
 	return (
 		<div className="App">
 			<header className="App-header">

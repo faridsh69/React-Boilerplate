@@ -3,6 +3,8 @@ yarn create react-app my-app --template typescript
 Use yarn install 
 Use yarn start
 
+settings > application > proxy > Edit in settings.json
+
 git:
 	- ghable pull request sakhtan, ghable shoroe task (akharin taghirat ro begiram) : git pull origin development
 	- ijade branch : git checkout -b test
@@ -24,6 +26,9 @@ installation :
 		// 	"**/*": "prettier --write --ignore-unknown"
 		// }
 	13) yarn add axios
+	14) eslint-config-prettier
+
+
 		
 Prettier:
 	+ yarn add --dev --exact prettier

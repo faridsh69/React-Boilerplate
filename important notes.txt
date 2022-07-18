@@ -15,7 +15,7 @@ installation :
 	5) yarn add react-hook-form
 	6) yarn add yup
 	7) yarn add helmet
-	8) yarn add i18n
+	8) yarn add i18next
 	9) yarn add swiper
 	10) yarn add react-window
 	11) yarn add date-fns
@@ -23,6 +23,7 @@ installation :
 		// "lint-staged": {
 		// 	"**/*": "prettier --write --ignore-unknown"
 		// }
+	13) yarn add axios
 		
 Prettier:
 	+ yarn add --dev --exact prettier

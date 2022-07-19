@@ -3,6 +3,8 @@ yarn create react-app my-app --template typescript
 Use yarn install 
 Use yarn start
 
+settings > application > proxy > Edit in settings.json
+
 git:
 	- ghable pull request sakhtan, ghable shoroe task (akharin taghirat ro begiram) : git pull origin development
 	- ijade branch : git checkout -b test
@@ -12,6 +14,8 @@ installation :
 	2) yarn add react-query
 	3) yarn add @reduxjs/toolkit
 	4) yarn add redux
+	yarn add redux-saga
+	yarn add react-redux
 	5) yarn add react-hook-form
 	6) yarn add yup
 	7) yarn add helmet
@@ -24,6 +28,9 @@ installation :
 		// 	"**/*": "prettier --write --ignore-unknown"
 		// }
 	13) yarn add axios
+	14) eslint-config-prettier
+
+
 		
 Prettier:
 	+ yarn add --dev --exact prettier

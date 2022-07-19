@@ -1,15 +1,5 @@
-import React, {useEffect} from "react";
-import {blogApi} from "./services";
-
-export const getBlogs = () =>
-	blogApi.get({
-		endpoint: "",
-	});
-
-export const getBlog = (id: number) =>
-	blogApi.get({
-		endpoint: `/id/${id}`,
-	});
+import React, { useEffect } from "react";
+import Blog from "views/blog";
 
 function App() {
 	useEffect(() => {
@@ -21,7 +11,11 @@ function App() {
 		// });
 	}, []);
 
-	return <div className="App">123</div>;
+	return (
+		<div className="App">
+			<Blog />
+		</div>
+	);
 }
 
 export default App;

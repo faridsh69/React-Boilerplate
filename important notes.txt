@@ -14,6 +14,8 @@ installation :
 	2) yarn add react-query
 	3) yarn add @reduxjs/toolkit
 	4) yarn add redux
+	yarn add redux-saga
+	yarn add react-redux
 	5) yarn add react-hook-form
 	6) yarn add yup
 	7) yarn add helmet

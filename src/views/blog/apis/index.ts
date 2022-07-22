@@ -5,3 +5,19 @@ export const getBlogListApi = (filters: any) =>
 		endpoint: ``,
 		params: filters,
 	});
+
+export const getBlogByIDApi = (url: string) =>
+	blogAxios.get({
+		endpoint: `${url}`,
+	});
+
+export const addNewBlogApi = (newData: any) =>
+	blogAxios.post({
+		endpoint: ``,
+		data: newData,
+	});
+
+export const deleteBlogApi = (id: any) =>
+	blogAxios.delete({
+		endpoint: `/id/${id}`,
+	});

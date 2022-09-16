@@ -1,7 +1,7 @@
 const getToken = () => {
 	const user = localStorage.getItem("userToken");
 	if (user) {
-		const {access_token: accessToken} = JSON.parse(user || ({} as string));
+		const { access_token: accessToken } = JSON.parse(user || ({} as string));
 		if (accessToken) {
 			return accessToken;
 		}
@@ -10,7 +10,7 @@ const getToken = () => {
 };
 
 const getCommonHeaders = (config: any) => {
-	const newConfig = {...config};
+	const newConfig = { ...config };
 	newConfig.headers.Accept = "application/json";
 
 	return newConfig;
@@ -32,7 +32,7 @@ export const unauthorizedInterceptor = async (error: any) => {
 };
 
 export const tokenInterceptor = (config: any) => {
-	const newConfig = {...config};
+	const newConfig = { ...config };
 	getCommonHeaders(config);
 	const token = getToken() || process.env.REACT_APP_API_TOKEN;
 	if (token) {

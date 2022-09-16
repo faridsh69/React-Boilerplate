@@ -1,6 +1,11 @@
 import { createActions } from "reduxsauce";
 
-const blogActionList = {
+interface BlogListActionType {
+	payload: any;
+	error: string;
+}
+
+const BlogListAction = {
 	getBlogListRequest: ["filters"],
 	getBlogListSuccess: ["payload"],
 	getBlogListFailure: ["error"],
@@ -20,7 +25,8 @@ const blogActionList = {
 	clearBlogs: ["clear"],
 };
 
-const { Types: blogTypes, Creators: blogActions } = createActions(blogActionList);
-
+const { Types: blogTypes, Creators: blogActions } = createActions(BlogListAction);
 console.log("Types, Actions", blogTypes, blogActions);
+
 export { blogTypes, blogActions };
+export type Action = BlogListActionType;

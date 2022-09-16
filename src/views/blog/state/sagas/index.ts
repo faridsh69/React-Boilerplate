@@ -5,7 +5,8 @@ import { blogTypes } from "../actions";
 
 const getBlogList = function* (action: any) {
 	try {
-		const { data } = yield call(getBlogListApi, {});
+		// const { data } = yield call(getBlogListApi, {});
+		const { data } = yield call(getBlogListApi, action.filter);
 		console.log("data", data);
 
 		yield put({
@@ -18,7 +19,6 @@ const getBlogList = function* (action: any) {
 			error: e,
 		});
 	}
-	console.log("action", action);
 };
 
 const getBlogByID = function* (action: any) {

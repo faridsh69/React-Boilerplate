@@ -1,16 +1,16 @@
 import axios from "axios";
 import i18next from "i18next";
-import {tokenInterceptor, unauthorizedInterceptor} from "./authorization";
+import { tokenInterceptor, unauthorizedInterceptor } from "./authorization";
 
-interface ApiClientInterface {
+interface IApiClientInterface {
 	baseURL: any;
 	httpClient: any;
 }
 
-export default class ApiClient implements ApiClientInterface {
+export default class ApiClient implements IApiClientInterface {
 	constructor(baseURL: any, auth = true) {
 		this.baseURL = baseURL;
-		this.httpClient = axios.create({baseURL});
+		this.httpClient = axios.create({ baseURL });
 		if (auth) {
 			this.httpClient.interceptors.request.use(tokenInterceptor);
 		}
@@ -22,14 +22,14 @@ export default class ApiClient implements ApiClientInterface {
 
 	httpClient: any;
 
-	delete({endpoint, params, options}: any) {
+	delete({ endpoint, params, options }: any) {
 		return this.httpClient.delete(endpoint, {
 			params,
 			...options,
 		});
 	}
 
-	get({endpoint, params, options}: any) {
+	get({ endpoint, params, options }: any) {
 		return this.httpClient.get(endpoint, {
 			params,
 			...options,
@@ -45,11 +45,11 @@ export default class ApiClient implements ApiClientInterface {
 	// 	return this.httpClient.post(endpoint, data, options);
 	// }
 
-	post({endpoint, data, options}: any) {
+	post({ endpoint, data, options }: any) {
 		return this.httpClient.post(endpoint, data, options);
 	}
 
-	put({endpoint, data, options}: any) {
+	put({ endpoint, data, options }: any) {
 		return this.httpClient.put(endpoint, data, options);
 	}
 
@@ -89,7 +89,7 @@ export default class ApiClient implements ApiClientInterface {
 	// 	});
 	// }
 
-	download({endpoint}: any) {
+	download({ endpoint }: any) {
 		return this.httpClient({
 			url: endpoint,
 			method: "GET",

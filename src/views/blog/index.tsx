@@ -1,66 +1,77 @@
-import { useRef } from "react";
-import { connect, useDispatch } from "react-redux";
-import { blogActions } from "./redux/actions";
+import React from "react";
+import { useState } from "react";
+import { useActions } from "./hooks/useActions";
+import { useTypedSelector } from "./hooks/useTypedSelector";
 
-const Blog = (props: any): any => {
+const Blog: React.FC = () => {
+	const [term, setTerm] = useState("");
 	const {
 		getBlogListRequest,
 		getBlogByIDRequest,
 		addBlogRequest,
 		deleteBlogRequest,
 		clearBlogs,
-		blogs,
-		blogItem,
-	} = props;
+	} = useActions();
+	const { blogs, blogItem, error, isLoading } = useTypedSelector(state => state.blog!);
 
-	const dispatch = useDispatch();
+	const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		getBlogListRequest(term);
+	};
 
 	const handleGetBlog = () => {
-		dispatch(getBlogListRequest());
+		getBlogListRequest();
 	};
 
 	const handleGetBlogByID = () => {
-		dispatch(getBlogByIDRequest("blog-url-781342"));
+		getBlogByIDRequest("blog-url-906443");
 	};
 
 	const handleAddNewBlog = () => {
-		dispatch(addBlogRequest({ title: "blog-top", url: "xwz-20", description: "Its done" }));
+		addBlogRequest({ title: "blog-top", url: "xwz-2000", description: "Its done" });
 	};
 
 	const handleDeleteBlog = () => {
-		dispatch(deleteBlogRequest(13));
+		deleteBlogRequest(15);
 	};
 
 	const handleClearBlog = () => {
-		dispatch(clearBlogs());
+		clearBlogs();
 	};
-
-	console.log("blogs", blogs);
 	console.log("blogItem", blogItem);
-	console.log("props", props);
 
 	return (
 		<>
-			<button type="button" onClick={handleGetBlog}>
-				Get Data
-			</button>
-			&nbsp;
-			<button type="button" onClick={handleGetBlogByID}>
-				Get By Url
-			</button>
-			&nbsp;
-			<button type="button" onClick={handleClearBlog}>
-				Clear Data
-			</button>
-			&nbsp;
-			<button type="button" onClick={handleAddNewBlog}>
-				Add New Blog
-			</button>
-			&nbsp;
-			<button type="button" onClick={handleDeleteBlog}>
-				Delete Blog
-			</button>
-			{blogs &&
+			<form onSubmit={onSubmit}>
+				<input value={term} onChange={e => setTerm(e.target.value)} />
+				&nbsp;
+				<button>Search</button>
+				&nbsp;
+				<button type="button" onClick={handleGetBlog}>
+					Get Data
+				</button>
+				&nbsp;
+				<button type="button" onClick={handleGetBlogByID}>
+					Get By Url
+				</button>
+				&nbsp;
+				<button type="button" onClick={handleClearBlog}>
+					Clear Data
+				</button>
+				&nbsp;
+				<button type="button" onClick={handleAddNewBlog}>
+					Add New Blog
+				</button>
+				&nbsp;
+				<button type="button" onClick={handleDeleteBlog}>
+					Delete Blog
+				</button>
+			</form>
+
+			{error && <h3>{error}</h3>}
+			{isLoading && <h3>Loading...</h3>}
+			{!error &&
+				!isLoading &&
 				blogs.map((a: any) => (
 					<div key={a.id}>
 						<p>{a.id}</p>
@@ -72,12 +83,14 @@ const Blog = (props: any): any => {
 		</>
 	);
 };
-const mapStateToProps = ({ blog }: any) => ({
-	blogs: blog.blogs,
-	blogItem: blog.blogItem,
-	status: blog.status,
-});
+export default Blog;
 
-export default connect(mapStateToProps, {
-	...blogActions,
-})(Blog);
+// const mapStateToProps = ({ blog }: any) => ({
+// 	blogs: blog.blogs,
+// 	blogItem: blog.blogItem,
+// 	status: blog.status,
+// });
+
+// export default connect(mapStateToProps, {
+// 	...blogActions,
+// })(Blog);

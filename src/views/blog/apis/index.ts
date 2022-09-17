@@ -8,16 +8,16 @@ export const getBlogListApi = (filters: any) =>
 
 export const getBlogByIDApi = (url: string) =>
 	blogAxios.get({
-		endpoint: `${url}`,
+		endpoint: `${url}`, // Todo: just url
 	});
 
-export const addNewBlogApi = (newData: any) =>
+export const addNewBlogApi = (data: any) =>
 	blogAxios.post({
 		endpoint: ``,
-		data: newData,
+		data,
 	});
 
-export const deleteBlogApi = (id: any) =>
+export const deleteBlogApi = (id: number) =>
 	blogAxios.delete({
 		endpoint: `/id/${id}`,
 	});

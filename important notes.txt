@@ -98,20 +98,20 @@ RULES:
 
 React CMS:
 1)
-Create a gitlab repository, add kianaz and farid
-Init NextJs with TypeScript
-Add prettier rules
-Add eslint rules
-Add Huskey
++ Create a gitlab repository, add kianaz and farid
++ Init NextJs with TypeScript
++ Add prettier rules
++ Add eslint rules
++ Add Huskey
 Implement multi language using i18next 
-Add axios
-Add date-fns
-Add react query
-Add .env file
-Get /api/v1/blogs using react query, axios, with defining keys
-Add Error boundry to project
-Send all ajax errors, and error boundry errors to our server
-Add MUI
++ Add axios
++ Add date-fns
++ Add react query
++ Add .env file
++ Get /api/v1/blogs using react query, axios, with defining keys
+Add Sentry for errors
+Remove MUI
+Add antDesign
 Add theme: dark and light
 Add Context for MUI, also for TOAST
 Add image lazy loader from opacity 0 to 1 in 0.3 second

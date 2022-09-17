@@ -1,22 +1,22 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import { getBlogListApi, getBlogByIDApi, addNewBlogApi, deleteBlogApi } from "views/blog/apis";
-import { IActionTypeRequest } from "../action-types/actionType";
+import { IGetBlogListRequestAction } from "../action-types/actionType";
 
 import { blogTypes } from "../actions";
 
-const getBlogList = function* (action: IActionTypeRequest) {
+const getBlogList = function* ({ filter }: IGetBlogListRequestAction) {
 	try {
 		// const { data } = yield call(getBlogListApi, {});
-		const { data } = yield call(getBlogListApi, action.filter);
+		const { data } = yield call(getBlogListApi, filter);
 
 		yield put({
 			type: blogTypes.GET_BLOG_LIST_SUCCESS,
 			payload: data.data,
 		});
-	} catch (e) {
+	} catch (error: any) {
 		yield put({
 			type: blogTypes.GET_BLOG_LIST_FAILURE,
-			error: e,
+			error,
 		});
 	}
 };

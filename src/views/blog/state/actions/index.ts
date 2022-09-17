@@ -17,7 +17,7 @@ const BlogListAction = {
 	deleteBlogSuccess: ["payload"],
 	deleteBlogFailure: ["error"],
 
-	clearBlogs: ["clear"],
+	clearBlogs: [],
 };
 
 const { Types: blogTypes, Creators: blogActions } = createActions(BlogListAction);

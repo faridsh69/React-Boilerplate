@@ -1,22 +1,25 @@
 import { blogTypes } from "../actions";
 
-interface IGetBlogListRequestAction {
+export type IGetBlogListRequestAction = {
 	type: typeof blogTypes.GET_BLOG_LIST_REQUEST;
 	filter: string;
-}
+};
 
-interface IGetBlogListSuccessAction {
+export type IGetBlogListSuccessAction = {
 	type: typeof blogTypes.GET_BLOG_LIST_SUCCESS;
 	payload: any;
-}
+};
 
-interface IGetBlogListErrorAction {
+export type IGetBlogListErrorAction = {
 	type: typeof blogTypes.GET_BLOG_LIST_FAILURE;
 	error: string;
-}
+};
 
-export type IActionTypeRequest = IGetBlogListRequestAction;
-export type IActionTypeSuccess = IGetBlogListSuccessAction;
-export type IActionTypeFailor = IGetBlogListErrorAction;
+// export type IActionTypeRequest = IGetBlogListRequestAction;
+// export type IActionTypeSuccess = IGetBlogListSuccessAction;
+// export type IActionTypeFailor = IGetBlogListErrorAction;
 
-// export type Action = GetBlogListRequestAction | GetBlogListSuccessAction | GetBlogListErrorAction;
+// export type Action =
+// 	| IGetBlogListRequestAction
+// 	| IGetBlogListSuccessAction
+// 	| IGetBlogListErrorAction;

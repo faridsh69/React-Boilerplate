@@ -1,5 +1,5 @@
 import { createReducer } from "reduxsauce";
-import { IActionTypeFailor, IActionTypeSuccess } from "../action-types/actionType";
+import { IGetBlogListErrorAction, IGetBlogListSuccessAction } from "../action-types/actionType";
 import { blogTypes } from "../actions";
 
 interface IBlogState {
@@ -20,26 +20,20 @@ const initialState: IBlogState = {
 
 //#region GetData
 
-const getBlogListRequest = (state: IBlogState = initialState): IBlogState => ({
+const getBlogListRequest = (state: IBlogState): IBlogState => ({
 	...state,
 	isLoading: true,
 	status: "pending",
 });
 
-const getBlogListSuccess = (
-	state: IBlogState = initialState,
-	action: IActionTypeSuccess,
-): IBlogState => ({
+const getBlogListSuccess = (state: IBlogState, action: IGetBlogListSuccessAction): IBlogState => ({
 	...state,
 	isLoading: false,
 	blogs: action.payload,
 	status: "success",
 });
 
-const getBlogListFailure = (
-	state: IBlogState = initialState,
-	{ error }: IActionTypeFailor,
-): IBlogState => ({
+const getBlogListFailure = (state: IBlogState, { error }: IGetBlogListErrorAction): IBlogState => ({
 	...state,
 	error,
 	isLoading: false,
@@ -49,20 +43,20 @@ const getBlogListFailure = (
 
 //#region GetById
 
-const getBlogByIDRequest = (state: IBlogState = initialState) => ({
+const getBlogByIDRequest = (state: IBlogState) => ({
 	...state,
 	isLoading: true,
 	status: "pending",
 });
 
-const getBlogByIDSuccess = (state: IBlogState = initialState, action: any) => ({
+const getBlogByIDSuccess = (state: IBlogState, action: any) => ({
 	...state,
 	isLoading: false,
 	blogItem: action.payload,
 	status: "success",
 });
 
-const getBlogByIDFailure = (state: IBlogState = initialState, { error }: any) => ({
+const getBlogByIDFailure = (state: IBlogState, { error }: any) => ({
 	...state,
 	error,
 	isLoading: false,
@@ -72,21 +66,21 @@ const getBlogByIDFailure = (state: IBlogState = initialState, { error }: any) =>
 
 //#region Add
 
-const addBlogRequest = (state: IBlogState = initialState, action: any) => ({
+const addBlogRequest = (state: IBlogState, action: any) => ({
 	...state,
 	newData: action.payload,
 	isLoading: true,
 	status: "pending",
 });
 
-const addBlogSuccess = (state: IBlogState = initialState, action: any) => ({
+const addBlogSuccess = (state: IBlogState, action: any) => ({
 	...state,
 	blogs: [...state.blogs, action.payload],
 	isLoading: false,
 	status: "success",
 });
 
-const addBlogFailure = (state: IBlogState = initialState, { error }: any) => ({
+const addBlogFailure = (state: IBlogState, { error }: any) => ({
 	...state,
 	error,
 	isLoading: false,
@@ -96,29 +90,25 @@ const addBlogFailure = (state: IBlogState = initialState, { error }: any) => ({
 
 //#region Delete
 
-const deleteBlogRequest = (state: IBlogState = initialState) => ({
+const deleteBlogRequest = (state: IBlogState) => ({
 	...state,
 	isLoading: true,
 	status: "pending",
 });
 
-const deleteBlogSuccess = (state: IBlogState = initialState) => ({
+const deleteBlogSuccess = (state: IBlogState) => ({
 	...state,
 	isLoading: false,
 	status: "success",
 });
 
-const deleteBlogFailure = (state: IBlogState = initialState, { error }: any) => ({
+const deleteBlogFailure = (state: IBlogState, { error }: any) => ({
 	...state,
 	error,
 	isLoading: false,
 });
 
-const clearBlogs = (state: IBlogState = initialState) => ({
-	...state,
-	isLoading: false,
-	blogs: [],
-});
+const clearBlogs = () => initialState;
 
 //#endregion
 

@@ -1,7 +1,8 @@
 import { createReducer } from "reduxsauce";
-import { Action, blogTypes } from "../actions";
+import { IActionTypeFailor, IActionTypeSuccess } from "../action-types/actionType";
+import { blogTypes } from "../actions";
 
-interface BlogState {
+interface IBlogState {
 	isLoading: boolean;
 	blogs: any;
 	blogItem: any;
@@ -9,7 +10,7 @@ interface BlogState {
 	status: string;
 }
 
-const initialState: BlogState = {
+const initialState: IBlogState = {
 	isLoading: false,
 	blogs: [],
 	blogItem: {},
@@ -19,20 +20,26 @@ const initialState: BlogState = {
 
 //#region GetData
 
-const getBlogListRequest = (state: BlogState = initialState): BlogState => ({
+const getBlogListRequest = (state: IBlogState = initialState): IBlogState => ({
 	...state,
 	isLoading: true,
 	status: "pending",
 });
 
-const getBlogListSuccess = (state: BlogState = initialState, action: Action): BlogState => ({
+const getBlogListSuccess = (
+	state: IBlogState = initialState,
+	action: IActionTypeSuccess,
+): IBlogState => ({
 	...state,
 	isLoading: false,
 	blogs: action.payload,
 	status: "success",
 });
 
-const getBlogListFailure = (state: BlogState = initialState, { error }: Action): BlogState => ({
+const getBlogListFailure = (
+	state: IBlogState = initialState,
+	{ error }: IActionTypeFailor,
+): IBlogState => ({
 	...state,
 	error,
 	isLoading: false,
@@ -42,20 +49,20 @@ const getBlogListFailure = (state: BlogState = initialState, { error }: Action):
 
 //#region GetById
 
-const getBlogByIDRequest = (state: BlogState = initialState) => ({
+const getBlogByIDRequest = (state: IBlogState = initialState) => ({
 	...state,
 	isLoading: true,
 	status: "pending",
 });
 
-const getBlogByIDSuccess = (state: BlogState = initialState, action: Action) => ({
+const getBlogByIDSuccess = (state: IBlogState = initialState, action: any) => ({
 	...state,
 	isLoading: false,
 	blogItem: action.payload,
 	status: "success",
 });
 
-const getBlogByIDFailure = (state: BlogState = initialState, { error }: Action) => ({
+const getBlogByIDFailure = (state: IBlogState = initialState, { error }: any) => ({
 	...state,
 	error,
 	isLoading: false,
@@ -65,21 +72,21 @@ const getBlogByIDFailure = (state: BlogState = initialState, { error }: Action) 
 
 //#region Add
 
-const addBlogRequest = (state: BlogState = initialState, action: Action) => ({
+const addBlogRequest = (state: IBlogState = initialState, action: any) => ({
 	...state,
 	newData: action.payload,
 	isLoading: true,
 	status: "pending",
 });
 
-const addBlogSuccess = (state: BlogState = initialState, action: Action) => ({
+const addBlogSuccess = (state: IBlogState = initialState, action: any) => ({
 	...state,
 	blogs: [...state.blogs, action.payload],
 	isLoading: false,
 	status: "success",
 });
 
-const addBlogFailure = (state: BlogState = initialState, { error }: Action) => ({
+const addBlogFailure = (state: IBlogState = initialState, { error }: any) => ({
 	...state,
 	error,
 	isLoading: false,
@@ -89,25 +96,25 @@ const addBlogFailure = (state: BlogState = initialState, { error }: Action) => (
 
 //#region Delete
 
-const deleteBlogRequest = (state: BlogState = initialState) => ({
+const deleteBlogRequest = (state: IBlogState = initialState) => ({
 	...state,
 	isLoading: true,
 	status: "pending",
 });
 
-const deleteBlogSuccess = (state: BlogState = initialState) => ({
+const deleteBlogSuccess = (state: IBlogState = initialState) => ({
 	...state,
 	isLoading: false,
 	status: "success",
 });
 
-const deleteBlogFailure = (state: BlogState = initialState, { error }: Action) => ({
+const deleteBlogFailure = (state: IBlogState = initialState, { error }: any) => ({
 	...state,
 	error,
 	isLoading: false,
 });
 
-const clearBlogs = (state: BlogState = initialState) => ({
+const clearBlogs = (state: IBlogState = initialState) => ({
 	...state,
 	isLoading: false,
 	blogs: [],

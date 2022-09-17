@@ -12,7 +12,7 @@ const Blog: React.FC = () => {
 		deleteBlogRequest,
 		clearBlogs,
 	} = useActions();
-	const { blogs, blogItem, error, isLoading } = useTypedSelector(state => state.blog);
+	const { blogs, blogItem, error, isLoading } = useTypedSelector(state => state.blog!);
 
 	const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
